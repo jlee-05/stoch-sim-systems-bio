@@ -8,7 +8,7 @@
 ## 📌 Overview
 This repository contains the visual results (GIF animations) generated from stochastic simulations of the **Gray-Scott Reaction-Diffusion model**.
 
-The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations utilize the **Chemical Langevin Equation (CLE)** and its spatial extension (**RDLE**) to efficiently approximate the stochastic dynamics on a 2D grid, demonstrating how intrinsic noise drives pattern formation.
+The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations utilise the **Chemical Langevin Equation (CLE)** and its spatial extension (**RDLE**) to efficiently approximate the stochastic dynamics on a 2D grid, demonstrating how intrinsic noise drives pattern formation.
 
 ---
 
@@ -44,6 +44,3 @@ By adjusting the **Feed ($F$)** and **Kill ($k$)** rates, the system shifts betw
 
 ## 🛠️ Methodology
 These results were generated using the **Euler-Maruyama method** for the Reaction-Diffusion Langevin Equation (RDLE). This approximation allows for the simulation of complex spatial patterns that would be computationally prohibitive using the exact Gillespie Algorithm (SSA).
-
-* **Language:** Python (NumPy, SciPy)
-* **Visualization:** Matplotlib & Manim
