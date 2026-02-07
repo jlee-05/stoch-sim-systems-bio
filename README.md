@@ -20,7 +20,7 @@ The "graininess" of the simulation is controlled by the system size parameter, $
 
 | **High Noise ($\Omega=50$)** | **Deterministic Limit ($\Omega=5000$)** |
 |:----------------------------:|:---------------------------------------:|
-| ![Low Pop Result](Results/Labyrinth_Omega50.gif) | ![High Pop Result](results/Labyrinth_Omega5000.gif) |
+| ![Low Pop Result](Results/Labyrinth_Omega50.gif) | ![High Pop Result](Results/Labyrinth_Omega5000.gif) |
 | *Note the spontaneous symmetry breaking caused by noise.* | *Smooth evolution typical of standard differential equations.* |
 
 ---
@@ -32,13 +32,13 @@ By adjusting the **Feed ($F$)** and **Kill ($k$)** rates, the system shifts betw
 * **Parameters:** $F=0.030, k=0.062$
 * **Behavior:** Isolated regions of high concentration stabilize into spots.
 
-![Spots Animation](results/Spots_Omega1000.gif)
+![Spots Animation](Results/Spots_Omega1000.gif)
 
 ### 🦓 Phenotype B: Adult Labyrinths (Stripes)
-* **Parameters:** $F=0.055, k=0.062$
+* **Parameters:** $F=0.037, k=0.060$
 * **Behavior:** Spots elongate and merge to form complex, maze-like structures.
 
-![Maze Animation](results/Labyrinth_Omega1000.gif)
+![Maze Animation](Results/Labyrinth_Omega1000.gif)
 
 ---
 
