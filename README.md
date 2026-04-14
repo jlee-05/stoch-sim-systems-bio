@@ -1,6 +1,6 @@
 # Stochastic Modelling for Systems Biology
 
-This repository contains the supplementary computational codebase for my mathematics dissertation, *Investigation of Stochastic Simulation Methods in Spatially Extended Reaction-Diffusion Systems. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
+This repository contains the supplementary computational codebase for my mathematics dissertation, *Investigation of Stochastic Simulation Methods in Spatially Extended Reaction-Diffusion Systems*. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
 
 ## 📌 Project Overview
 
@@ -75,8 +75,6 @@ conda activate smfsb_project
 
 # Install Jupyter to run the notebooks natively
 conda install -c conda-forge jupyterlab -y
-### 3. Installing Dependencies
-pip install -r requirements.txt
 ```
 ### 3. Installing Dependencies
 Once the environment is active, install the required packages (including JAX and `jsmfsb`) using the provided requirements file:
