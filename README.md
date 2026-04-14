@@ -1,46 +1,77 @@
-# Stochastic Simulation of Reaction-Diffusion Systems
+# Stochastic Modelling for Systems Biology
 
-**Supplementary Material for Dissertation** | Durham University  
-**Topic:** Stochastic Modelling for Systems Biology
+This repository contains the supplementary computational codebase for my mathematics dissertation, *Stochastic Modelling for Systems Biology*. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
 
----
+## 📌 Project Overview
 
-## 📌 Overview
-This repository contains the visual results (GIF animations) generated from stochastic simulations of the **Gray-Scott Reaction-Diffusion model**.
-
-The primary goal of this research is to bridge the gap between microscopic molecular fluctuations (noise) and macroscopic spatial patterns. The simulations utilise the **Chemical Langevin Equation (CLE)** and its spatial extension (**RDLE**) to efficiently approximate the stochastic dynamics on a 2D grid, demonstrating how intrinsic noise drives pattern formation.
-
----
-
-## 1. The Effect of Noise (Volume Scaling)
-The "graininess" of the simulation is controlled by the system size parameter, $\Omega$ (Omega).
-
-* **Low Population ($\Omega=50$):** High intrinsic noise. The RDLE approximation reveals how stochastic fluctuations dominate, leading to spontaneous nucleation and "ragged" pattern edges.
-* **High Population ($\Omega=5000$):** Low noise. The system approaches the deterministic limit (ODE), resulting in smooth, continuous wavefronts.
-
-| **High Noise ($\Omega=50$)** | **Deterministic Limit ($\Omega=5000$)** |
-|:----------------------------:|:---------------------------------------:|
-| ![Low Pop Result](Results/Labyrinth_Omega50.gif) | ![High Pop Result](Results/Labyrinth_Omega5000.gif) |
-| *Note the spontaneous symmetry breaking caused by noise.* | *Smooth evolution typical of standard differential equations.* |
+Traditional macroscopic models often rely on deterministic partial differential equations (PDEs), which operate on continuous concentrations and implicitly assume an infinite system size ($\Omega \to \infty$). This project analyses the breakdown of these assumptions in low-copy-number environments by comparing three mathematical frameworks:
+1. **The Gillespie Algorithm (SSA):** Exact, discrete stochastic realisations.
+2. **The Chemical Langevin Equation (CLE):** A continuous stochastic differential equation (SDE) approximation.
+3. **Deterministic ODEs/PDEs:** The macroscopic limits, solved via custom Runge-Kutta (RK4) and Euler methods.
 
 ---
 
-## 2. Pattern Versatility (Turing Instability)
-By adjusting the **Feed ($F$)** and **Kill ($k$)** rates, the system shifts between different Turing regimes, replicating biological patterns found in nature (e.g., *Tetraodon mbu* pufferfish skin).
+## 🔬 Visualising the Breakdown of Turing Patterns (Gray-Scott Model)
 
-### 🐡 Phenotype A: Juvenile Spots
-* **Parameters:** $F=0.030, k=0.062$
-* **Behavior:** Isolated regions of high concentration stabilize into spots.
+The spatial Gray-Scott model highlights a critical finding of this project: deterministic equations are scale-invariant and fail to capture the disruptive nature of demographic noise in intracellular environments. 
 
-![Spots Animation](Results/Spots_Omega1000.gif)
+Below is the temporal evolution of the system. Notice how the High $\Omega$ systems form coherent, macroscopic Turing patterns, while the Low $\Omega$ systems struggle to maintain spatial boundaries due to discrete molecular fluctuations.
 
-### 🦓 Phenotype B: Adult Labyrinths (Stripes)
-* **Parameters:** $F=0.037, k=0.060$
-* **Behavior:** Spots elongate and merge to form complex, maze-like structures.
+### 1. Labyrinth Formation
+<p align="center">
+  <img src="Poster_Gifs/Labyrinth_Omega1000.gif" width="45%" title="High Omega Labyrinth">
+  <img src="Poster_Gifs/Labyrinth_Omega50.gif" width="45%" title="Low Omega Labyrinth">
+</p>
+<p align="center">
+  <em>Left: High capacity ($\Omega=1000$) approximating the PDE limit. Right: Low capacity ($\Omega=50$) dominated by demographic noise.</em>
+</p>
 
-![Maze Animation](Results/Labyrinth_Omega1000.gif)
+### 2. Spot Replication
+<p align="center">
+  <img src="Poster_Gifs/Spots_Omega1000.gif" width="45%" title="High Omega Spots">
+  <img src="Poster_Gifs/Spots_Omega50.gif" width="45%" title="Low Omega Spots">
+</p>
+<p align="center">
+  <em>Left: Coherent spatial replication. Right: Stochastic disruption of the wave fronts.</em>
+</p>
 
 ---
 
-## 🛠️ Methodology
-These results were generated using the **Euler-Maruyama method** for the Reaction-Diffusion Langevin Equation (RDLE). This approximation allows for the simulation of complex spatial patterns that would be computationally prohibitive using the exact Gillespie Algorithm (SSA).
+## 📂 Repository Structure
+
+The codebase is highly modular, separating custom mathematical engines, long-running computational scripts, and data visualisation notebooks to ensure absolute reproducibility.
+
+* **`notebooks/`**: Jupyter Notebooks containing the core analysis and figure generation.
+  * `Fig2_1_to_2_6_Theoretical_Foundations.ipynb`
+  * `Fig4_1_Benchmarking.ipynb`
+  * `Fig4_2_to_4_5_Lotka_Volterra.ipynb`
+  * `Fig4_6_to_4_7_SIR.ipynb`
+  * `Fig4_8_to_4_9_Gray_Scott.ipynb`
+* **`scripts/`**: Standalone Python scripts for executing computationally intensive tasks. 
+  * `run_benchmarks.py` (Executes the $100 \times 100$ exact spatial SSA timings).
+* **`src/`**: Custom mathematical engines.
+  * `solvers.py` (Contains a custom RK4 solver to prevent numerical drift in cyclic phase orbits).
+* **`data/`**: Serialised `.pkl` arrays and `.csv` files storing pre-computed spatial trajectories, preventing out-of-memory errors and allowing instant notebook rendering.
+* **`Poster_Gifs/`**: Compiled `.gif` animations of the spatial models linked to the physical dissertation poster.
+
+---
+
+## ⚙️ Reproducibility & Installation Guide
+
+Scientific Python environments relying on JAX for high-performance array computing can be complex to configure. To ensure full reproducibility across different hardware, please follow the steps below to create an isolated `conda` environment.
+
+### 1. Prerequisites
+Ensure you have [Anaconda or Miniconda](https://docs.conda.io/en/latest/miniconda.html) installed on your system.
+
+### 2. Environment Setup
+Open your terminal and run the following commands to create and activate a fresh environment:
+
+```bash
+# Create a new environment using a stable Python version
+conda create -n smfsb_project python=3.10 -y
+
+# Activate the environment
+conda activate smfsb_project
+
+# Install Jupyter to run the notebooks natively
+conda install -c conda-forge jupyterlab -y
