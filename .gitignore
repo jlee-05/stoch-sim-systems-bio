@@ -22,3 +22,10 @@ Thumbs.db
 data/
 *.pdf
 *.zip
+
+# Local media and temp folders
+.vscode/
+Gifs/
+Report Images/
+Temp/
+pdfs+pngs/
