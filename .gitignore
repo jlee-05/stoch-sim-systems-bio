@@ -1,0 +1,24 @@
+# Environments
+env/
+venv/
+.env
+smfsb_project/
+miniconda3/
+
+# Jupyter Notebook hidden files
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS hidden files
+.DS_Store
+Thumbs.db
+
+# Project specific exclusions (Large data or PDFs)
+data/
+*.pdf
+*.zip
