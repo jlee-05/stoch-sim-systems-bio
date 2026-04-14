@@ -29,8 +29,8 @@ Below is the temporal evolution of the system. Notice how the High $\Omega$ syst
 
 ### 2. Spot Replication
 <p align="center">
-  <img src="Poster_Gifs/Spots_Omega1000.gif" width="45%" title="High Omega Spots">
-  <img src="Poster_Gifs/Spots_Omega50.gif" width="45%" title="Low Omega Spots">
+  <img src="Poster_GIFs/Spots_Omega1000.gif" width="45%" title="High Omega Spots">
+  <img src="Poster_GIFs/Spots_Omega50.gif" width="45%" title="Low Omega Spots">
 </p>
 <p align="center">
   <em>Left: Coherent spatial replication. Right: Stochastic disruption of the wave fronts.</em>
