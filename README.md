@@ -20,8 +20,8 @@ Below is the temporal evolution of the system. Notice how the High $\Omega$ syst
 
 ### 1. Labyrinth Formation
 <p align="center">
-  <img src="Poster_Gifs/Labyrinth_Omega1000.gif" width="45%" title="High Omega Labyrinth">
-  <img src="Poster_Gifs/Labyrinth_Omega50.gif" width="45%" title="Low Omega Labyrinth">
+  <img src="Poster_GIFs/Labyrinth_Omega1000.gif" width="45%" title="High Omega Labyrinth">
+  <img src="Poster_GIFs/Labyrinth_Omega50.gif" width="45%" title="Low Omega Labyrinth">
 </p>
 <p align="center">
   <em>Left: High capacity ($\Omega=1000$) approximating the PDE limit. Right: Low capacity ($\Omega=50$) dominated by demographic noise.</em>
