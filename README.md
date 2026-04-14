@@ -1,6 +1,7 @@
 # Stochastic Modelling for Systems Biology
 
-This repository contains the supplementary computational codebase for my mathematics dissertation, *Stochastic Modelling for Systems Biology*. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
+This repository contains the supplementary computational codebase for my mathematics dissertation, *Investigation of Stochastic Simulation
+Methods in Spatially Extended Reaction-Diffusion Systems*. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
 
 ## 📌 Project Overview
 
