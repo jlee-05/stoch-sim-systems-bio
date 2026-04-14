@@ -1,11 +1,10 @@
 # Stochastic Modelling for Systems Biology
 
-This repository contains the supplementary computational codebase for my mathematics dissertation, *Investigation of Stochastic Simulation
-Methods in Spatially Extended Reaction-Diffusion Systems*. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
+This repository contains the supplementary computational codebase for my mathematics dissertation, *Investigation of Stochastic Simulation Methods in Spatially Extended Reaction-Diffusion Systems. It implements exact discrete stochastic simulations alongside continuous approximations to investigate the role of intrinsic demographic noise in biological systems, spanning from simple temporal dynamics to complex spatiotemporal reaction-diffusion waves.
 
 ## 📌 Project Overview
 
-Traditional macroscopic models often rely on deterministic partial differential equations (PDEs), which operate on continuous concentrations and implicitly assume an infinite system size ($\Omega \to \infty$). This project analyses the breakdown of these assumptions in low-copy-number environments by comparing three mathematical frameworks:
+Traditional macroscopic models often rely on deterministic partial differential equations (PDEs), which operate on continuous concentrations and implicitly assume an infinite system size (Ω → ∞). This project analyses the breakdown of these assumptions in low-copy-number environments by comparing three mathematical frameworks:
 1. **The Gillespie Algorithm (SSA):** Exact, discrete stochastic realisations.
 2. **The Chemical Langevin Equation (CLE):** A continuous stochastic differential equation (SDE) approximation.
 3. **Deterministic ODEs/PDEs:** The macroscopic limits, solved via custom Runge-Kutta (RK4) and Euler methods.
@@ -16,7 +15,7 @@ Traditional macroscopic models often rely on deterministic partial differential 
 
 The spatial Gray-Scott model highlights a critical finding of this project: deterministic equations are scale-invariant and fail to capture the disruptive nature of demographic noise in intracellular environments. 
 
-Below is the temporal evolution of the system. Notice how the High $\Omega$ systems form coherent, macroscopic Turing patterns, while the Low $\Omega$ systems struggle to maintain spatial boundaries due to discrete molecular fluctuations.
+Below is the temporal evolution of the system. Notice how the High Ω systems form coherent, macroscopic Turing patterns, while the Low Ω systems struggle to maintain spatial boundaries due to discrete molecular fluctuations.
 
 ### 1. Labyrinth Formation
 <p align="center">
@@ -24,7 +23,7 @@ Below is the temporal evolution of the system. Notice how the High $\Omega$ syst
   <img src="Poster_GIFs/Labyrinth_Omega50.gif" width="45%" title="Low Omega Labyrinth">
 </p>
 <p align="center">
-  <em>Left: High capacity ($\Omega=1000$) approximating the PDE limit. Right: Low capacity ($\Omega=50$) dominated by demographic noise.</em>
+  <em>Left: High capacity (Ω=1000) approximating the PDE limit. Right: Low capacity (Ω=50) dominated by demographic noise.</em>
 </p>
 
 ### 2. Spot Replication
@@ -49,11 +48,11 @@ The codebase is highly modular, separating custom mathematical engines, long-run
   * `Fig4_6_to_4_7_SIR.ipynb`
   * `Fig4_8_to_4_9_Gray_Scott.ipynb`
 * **`scripts/`**: Standalone Python scripts for executing computationally intensive tasks. 
-  * `run_benchmarks.py` (Executes the $100 \times 100$ exact spatial SSA timings).
+  * `run_benchmarks.py` (Executes the 100 × 100 exact spatial SSA timings).
 * **`src/`**: Custom mathematical engines.
   * `solvers.py` (Contains a custom RK4 solver to prevent numerical drift in cyclic phase orbits).
 * **`data/`**: Serialised `.pkl` arrays and `.csv` files storing pre-computed spatial trajectories, preventing out-of-memory errors and allowing instant notebook rendering.
-* **`Poster_Gifs/`**: Compiled `.gif` animations of the spatial models linked to the physical dissertation poster.
+* **`Poster_GIFs/`**: Compiled `.gif` animations of the spatial models linked to the physical dissertation poster.
 
 ---
 
@@ -76,3 +75,17 @@ conda activate smfsb_project
 
 # Install Jupyter to run the notebooks natively
 conda install -c conda-forge jupyterlab -y
+### 3. Installing Dependencies
+pip install -r requirements.txt
+```
+### 3. Installing Dependencies
+Once the environment is active, install the required packages (including JAX and `jsmfsb`) using the provided requirements file:
+
+```bash
+pip install -r requirements.txt
+```
+### 4. Executing the Code
+To view and run the visualisations, launch Jupyter Lab from the root directory in the Terminal:
+```bash
+jupyter lab
+```
